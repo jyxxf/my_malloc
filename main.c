@@ -51,25 +51,22 @@ int main(void)
 		}
 		else
 		{
-			if (test[free_index].p)
+			if (!whether_the_same_value(test[free_index].p, test[free_index].length, test[free_index].length))
 			{
-				if(!whether_the_same_value(test[free_index].p, test[free_index].length, test[free_index].length))
-				{
-					fprintf(file, "FATAL ERROR! The value is wrong!");
-					return 0;
-				}
-
-				if (!my_free(test[free_index].p))
-				{
-					fprintf(file, "FATAL ERROR!");
-					return 0;
-				}
-				else
-				{
-					fprintf(file, "free %d well\n\n", test[free_index].length);
-				}
-				free_index++;
+				fprintf(file, "FATAL ERROR! The value is wrong!");
+				return 0;
 			}
+
+			if (!my_free(test[free_index].p))
+			{
+				fprintf(file, "FATAL ERROR!");
+				return 0;
+			}
+			else
+			{
+				fprintf(file, "free %d well\n\n", test[free_index].length);
+			}
+			free_index++;
 		}
 		i++;
 	}
