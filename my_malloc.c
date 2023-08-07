@@ -61,7 +61,7 @@ void *my_malloc(size_t length)
  */
 u8 my_free(void *p)
 {
-	u16 index = p - (void *)memory;
+	u16 index = (char *)p - (char *)memory;
 	for (size_t i = 0; i < table.current_index; i++)
 	{
 		if (table.config[i].index == index)
